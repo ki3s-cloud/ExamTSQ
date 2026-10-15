@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS settings (id INTEGER PRIMARY KEY CHECK(id=1), open INTEGER NOT NULL DEFAULT 0, session_id TEXT NOT NULL DEFAULT '', opened_at INTEGER NOT NULL DEFAULT 0, closes_at INTEGER NOT NULL DEFAULT 0, duration INTEGER NOT NULL DEFAULT 1200);
+INSERT OR IGNORE INTO settings(id) VALUES (1);
+CREATE TABLE IF NOT EXISTS attempts (id TEXT PRIMARY KEY, session_id TEXT NOT NULL, student_code TEXT NOT NULL, name TEXT NOT NULL, class_name TEXT NOT NULL, token_hash TEXT NOT NULL, started_at INTEGER NOT NULL, deadline INTEGER NOT NULL, status TEXT NOT NULL DEFAULT 'doing', question_order TEXT NOT NULL, option_orders TEXT NOT NULL, answers TEXT NOT NULL DEFAULT '[]', essays TEXT NOT NULL DEFAULT '[]', answered INTEGER NOT NULL DEFAULT 0, score INTEGER, essay_scores TEXT, submitted_at INTEGER, updated_at INTEGER NOT NULL, UNIQUE(session_id,student_code));
+CREATE INDEX IF NOT EXISTS idx_attempt_session ON attempts(session_id);

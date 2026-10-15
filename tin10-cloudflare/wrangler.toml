@@ -1,0 +1,8 @@
+name = "tin10-cloudflare"
+pages_build_output_dir = "./public"
+compatibility_date = "2026-10-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "tin10-exam"
+database_id = "THAY_DATABASE_ID_TAI_DAY"
